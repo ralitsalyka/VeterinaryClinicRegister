@@ -10,7 +10,7 @@ def list(request):
 
 
 def detail(request, animal_id):
-    animal = get_object_or_404(Animal, animal_id=animal_id)
+    animal = get_object_or_404(Animal, id=animal_id)
     return render(request, 'animals/detail.html', {'animals': animal})
 
 

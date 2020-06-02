@@ -13,5 +13,5 @@ animals_patterns = [
 
 urlpatterns = [
     path('', index, name='index'),
-    path('animal/', animals.AnimalCreateView.as_view(), name="animal"),
+    path('animals/', include((animals_patterns, 'animals'))),
 ]
