@@ -17,10 +17,16 @@ from django.contrib import admin
 from django.urls import path, include
 from clinic.views import (
     registration_view,
+    logout_view,
+    home_screen_view,
+    login_view
 )
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('clinic/', include('clinic.urls')),
-    path('register/', registration_view, name="register")
+    path('register/', registration_view, name="register"),
+    path('logout/', logout_view, name="logout"),
+    path('', home_screen_view, name="home"),
+    path('login/', login_view, name="login")
 ]
