@@ -55,7 +55,7 @@ ROOT_URLCONF = 'vetclinicregistry.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -67,6 +67,8 @@ TEMPLATES = [
         },
     },
 ]
+
+AUTH_USER_MODEL = 'clinic.User'
 
 WSGI_APPLICATION = 'vetclinicregistry.wsgi.application'
 
@@ -100,6 +102,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTHENTICATION_BACKENDS = (
+    ('django.contrib.auth.backends.ModelBackend'),
+)
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
