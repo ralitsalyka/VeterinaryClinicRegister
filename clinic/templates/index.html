@@ -1,1 +1,17 @@
-<h1>Welcome to our veterinary clinic!</h1>
+<!DOCTYPE html>
+<html>
+<head>
+    {% if request.user.is_authenticated %}
+    <p><a href="{% url 'home' %}">Home</a> | <a href="{% url 'logout' %}">Logout</a></p>
+        <p>Hello, {{request.user.username}}</p>
+    {% else %}
+        <p> <a href="{% url 'home' %}">Home</a> | 
+            <a href="{% url 'register' %}">Register</a> | 
+            <a href="{% url 'login' %}">Login</a>
+        </p>
+    {% endif %}
+</head>
+<body>
+
+</body>
+</html>
