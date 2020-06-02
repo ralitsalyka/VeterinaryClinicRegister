@@ -30,5 +30,4 @@ urlpatterns = [
     path('logout/', logout_view, name="logout"),
     path('', home_screen_view, name="home"),
     path('login/', login_view, name="login"),
-    path('animal/', animals.AnimalCreateView.as_view(), name="animal"),
 ]
