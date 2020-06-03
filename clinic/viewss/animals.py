@@ -1,7 +1,7 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import CreateView
-from django.urls import reverse_lazy
-
+from django.urls import reverse_lazy, reverse
+from django import forms
 from clinic.models import Animal
 
 
@@ -14,10 +14,21 @@ def detail(request, animal_id):
     return render(request, 'animals/detail.html', {'animals': animal})
 
 
-class AnimalCreateView(CreateView):
-    model = Animal
-    fields = ['name', 'owner', 'species', 'description']
-    template_name = 'animals/create.html'
+class CrouseForm(forms.ModelForm):
+    class Meta:
+        model = Animal
+        fields = ('name', 'owner', 'species', 'description')
 
-    def get_success_url(self, **kwargs):
-        return reverse_lazy('clinic:animals:detail', kwargs={'animal_id': self.object.animal_id})
+
+def new_experiment(request):
+    if request.method == "POST":
+        data = request.POST
+        form = CrouseForm(data=data)
+        if form.is_valid():
+            new_animal = form.save()
+            return redirect(reverse('clinic:animals:list'))
+        else:
+            return render(request, 'animals/create.html', {'form': form})
+    else:
+        form = CrouseForm()
+        return render(request, 'animals/create.html', {'form': form})
