@@ -8,7 +8,7 @@ app_name = 'clinic'
 animals_patterns = [
     path('', animals.list, name='list'),
     path('<int:animal_id>/', animals.list, name='list'),
-    path('new/', animals.new_experiment, name='create'),
+    path('new/', animals.add_new_animal, name='create'),
 ]
 
 urlpatterns = [
