@@ -1,2 +1,12 @@
 {% extends "procedures/base.html" %} {% block content %}
+{% if procedures %}
+<ul>
+    {% for procedure in procedures %}
+    <li><a href="{% url 'clinic:procedures:detail' procedure.id %}">{{procedure.name}}</a></li>
+    {% endfor %}
+</ul>
+{% else %}
+<p><strong>No procedures yet.</strong></p>
+{% endif %}
+<p><a href="{% url 'clinic:procedures:create' %}">Add new</a></p>
 {% endblock %}

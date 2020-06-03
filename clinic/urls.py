@@ -14,6 +14,8 @@ animals_patterns = [
 
 procedures_patterns = [
     path('', procedures.list, name='list'),
+    path('<int:procedure_id>/', procedures.detail, name='detail'),
+    path('new/', procedures.add_new_procedure, name='create'),
 ]
 
 urlpatterns = [
