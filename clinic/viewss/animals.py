@@ -20,15 +20,28 @@ class CrouseForm(forms.ModelForm):
         fields = ('name', 'species', 'description', 'photo')
 
 
+class AnimalForm(forms.ModelForm):
+    class Meta:
+        model = Animal
+        fields = ('name', 'species', 'description', 'photo')
+
+
 def add_new_animal(request):
     if request.method == "POST":
         data = request.POST
-        form = CrouseForm(data=data)
+        form = AnimalForm(data=data)
         if form.is_valid():
-            new_animal = form.save()
+            name = form.cleaned_data.get('name')
+            species = form.cleaned_data.get('species')
+            description = form.cleaned_data.get('description')
+            photo = form.cleaned_data.get('photo')
+            current_user = request.user
+            owner = current_user
+            new = Animal(name=name, species=species, owner=owner, description=description, photo=photo)
+            new.save()
             return redirect(reverse('clinic:animals:list'))
         else:
             return render(request, 'animals/create.html', {'form': form})
     else:
-        form = CrouseForm()
+        form = AnimalForm()
         return render(request, 'animals/create.html', {'form': form})
