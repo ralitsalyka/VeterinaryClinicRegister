@@ -57,7 +57,6 @@ class User(AbstractBaseUser):
 
 
 class Animal(models.Model):
-    animal_id = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=250)
     owner = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     species = models.CharField(max_length=250)
