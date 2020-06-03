@@ -10,7 +10,7 @@ class UserAdmin(admin.ModelAdmin):
 
 @admin.register(Animal)
 class AnimalAdmin(admin.ModelAdmin):
-    list_display = ('name', 'owner', 'species', 'description')
+    list_display = ('name', 'owner', 'species', 'description', 'photo')
 
 
 @admin.register(Procedure)

@@ -1,3 +1,18 @@
-{% extends "animals/base.html" %} {% block content %}
-<h2>{{ animal.name }}</h2>
+{% block content %}
+<table style="width:100%">
+    <tr>
+        <th style="text-align:left">Animal name</th>
+        <th style="text-align:left">Animal photo</th>
+        <th style="text-align:left">Animal owner</th>
+        <th style="text-align:left">Animal species</th>
+        <th style="text-align:left">Animal description</th>
+    </tr>
+    <tr>
+        <th style="text-align:left">{{animal.name}}</th>
+        <th style="text-align:left">{{animal.photo}}</th>
+        <th style="text-align:left">{{animal.owner}}</th>
+        <th style="text-align:left">{{animal.species}}</th>
+        <th style="text-align:left">{{animal.description}}</th>
+    </tr>
+</table>
 {% endblock %}

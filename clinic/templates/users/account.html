@@ -1,5 +1,11 @@
+<a href="{% url 'home' %}">Home</a> | 
+        <a href="{% url 'logout' %}">Logout</a> |
+        <a href="{% url 'account' %}">Your account</a> |
+        <a href="{% url 'clinic:animals:list' %}">Your pets</a> | 
+        <a href="{% url 'clinic:procedures:list' %}">Your procedures</a>
+<h5>Here is the information for your account. If you want, you can modify it.</h5>
 {% block content %}
-<h2>Account</h2>
+<h2>Your account</h2>
 <form method="post">
     {% csrf_token %}
     {% for field in account_form %}
