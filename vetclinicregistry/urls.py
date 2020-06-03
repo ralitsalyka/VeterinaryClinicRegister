@@ -19,9 +19,10 @@ from clinic.views import (
     registration_view,
     logout_view,
     home_screen_view,
-    login_view
+    login_view,
+    account_view
 )
-from clinic.viewss import animals
+#from clinic.viewss import animals
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -30,4 +31,5 @@ urlpatterns = [
     path('logout/', logout_view, name="logout"),
     path('', home_screen_view, name="home"),
     path('login/', login_view, name="login"),
+    path('account/', account_view, name="account"),
 ]
