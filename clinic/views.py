@@ -36,7 +36,7 @@ def login_view(request):
     context = {}
     user = request.user
     if user.is_authenticated:
-        return redirect('clinic: index')
+        return redirect('clinic:index')
     if request.POST:
         form = AccountAuthenticationForm(request.POST)
         if form.is_valid():
