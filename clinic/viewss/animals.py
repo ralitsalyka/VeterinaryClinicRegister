@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import CreateView
-from django.urls import reverse_lazy, reverse
+from django.urls import reverse
 from django import forms
 from clinic.models import Animal
 
@@ -20,7 +20,7 @@ class CrouseForm(forms.ModelForm):
         fields = ('name', 'owner', 'species', 'description')
 
 
-def new_experiment(request):
+def add_new_animal(request):
     if request.method == "POST":
         data = request.POST
         form = CrouseForm(data=data)
