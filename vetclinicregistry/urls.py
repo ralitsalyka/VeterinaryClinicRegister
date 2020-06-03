@@ -33,3 +33,6 @@ urlpatterns = [
     path('login/', login_view, name="login"),
     path('account/', account_view, name="account"),
 ]
+
+#MEDIA_URL = '/media/'
+#MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
