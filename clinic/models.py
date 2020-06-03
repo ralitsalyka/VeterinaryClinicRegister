@@ -62,7 +62,7 @@ class Animal(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     species = models.CharField(max_length=250)
     description = models.TextField()
-
+    photo = models.ImageField(default='static/default.jpg', upload_to="images/")
 
     def __str__(self):
         return f'Animal "{self.name}"'

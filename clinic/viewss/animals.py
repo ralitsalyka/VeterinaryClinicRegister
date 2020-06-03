@@ -17,7 +17,7 @@ def detail(request, animal_id):
 class CrouseForm(forms.ModelForm):
     class Meta:
         model = Animal
-        fields = ('name', 'species', 'description')
+        fields = ('name', 'species', 'description', 'photo')
 
 
 def add_new_animal(request):
