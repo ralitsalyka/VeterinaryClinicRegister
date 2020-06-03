@@ -68,7 +68,13 @@ class Animal(models.Model):
 
 
 class Procedure(models.Model):
-    name = models.CharField(max_length=250)
+    CHOICES = (
+        ("Grooming", "Grooming"),
+        ("Diagnostics", "Diagnostics"),
+        ("Surgery", "Surgery"),
+        ("Therapy", "Therapy"),
+    )
+    name = models.CharField(max_length=250, choices=CHOICES)
     animal_name = models.ForeignKey(Animal, on_delete=models.CASCADE, null=True)
     owner = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     description = models.TextField()
