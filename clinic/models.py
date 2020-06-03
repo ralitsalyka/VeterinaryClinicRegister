@@ -58,7 +58,7 @@ class User(AbstractBaseUser):
 
 class Animal(models.Model):
     name = models.CharField(max_length=250)
-    owner = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE)
     species = models.CharField(max_length=250)
     description = models.TextField()
     photo = models.ImageField(default='static/default.jpg', upload_to="images/")
