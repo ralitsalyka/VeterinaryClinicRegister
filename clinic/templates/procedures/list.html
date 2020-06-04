@@ -3,6 +3,7 @@
 <ul>
     {% for procedure in procedures %}
     <li><a href="{% url 'clinic:procedures:detail' procedure.id %}">{{procedure.name}}</a></li>
+    <form onsubmit="return confirm('Do you really want to delete these procedure?');" method="POST" action="{% url 'clinic:procedures:delete' procedure.id %}">{% csrf_token %}<button>Delete</button></form><form method="POST" action="{% url 'clinic:procedures:edit' procedure.id %}">{% csrf_token %}<button>Edit</button></form> </li>
     {% endfor %}
 </ul>
 {% else %}

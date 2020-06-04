@@ -15,12 +15,6 @@ def detail(request, animal_id):
     return render(request, 'animals/detail.html', {'animals': animal})
 
 
-class CrouseForm(forms.ModelForm):
-    class Meta:
-        model = Animal
-        fields = ('name', 'species', 'description', 'photo')
-
-
 class AnimalForm(forms.ModelForm):
     class Meta:
         model = Animal
@@ -46,3 +40,23 @@ def add_new_animal(request):
     else:
         form = AnimalForm()
         return render(request, 'animals/create.html', {'form': form})
+
+
+def edit_animal(request, animal_id):
+    animal = Animal.objects.get(id=animal_id)
+    if request.method == 'POST':
+        form = AnimalForm(data=request.POST, instance=animal)
+        if form.is_valid():
+            form.save()
+            return redirect(reverse('clinic:animals:list'))
+        else:
+            return render(request, 'animals/edit.html', {'animal': animal, 'form': form})
+    else:
+        form = AnimalForm(initial={"name": animal.name, "species": animal.species, "description": animal.description, "photo": animal.photo })
+        return render(request, 'animals/edit.html', {'animal': animal, 'form': form})
+
+
+def delete_animal(request, animal_id):
+    if request.method == 'POST':
+        Animal.objects.get(id=animal_id).delete()
+    return redirect(reverse('clinic:animals:list'))

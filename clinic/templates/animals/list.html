@@ -2,7 +2,8 @@
 {% if animals %}
 <ul>
     {% for animal in animals %}
-    <li><a href="{% url 'clinic:animals:detail' animal.id %}">{{animal.name}}</a></li>
+    <li><a href="{% url 'clinic:animals:detail' animal.id %}">{{animal.name}}</a>
+    <form onsubmit="return confirm('Do you really want to delete your pet?');" method="POST" action="{% url 'clinic:animals:delete' animal.id %}">{% csrf_token %}<button>Delete</button></form><form method="POST" action="{% url 'clinic:animals:edit' animal.id %}">{% csrf_token %}<button>Edit</button></form> </li>
     {% endfor %}
 </ul>
 {% else %}

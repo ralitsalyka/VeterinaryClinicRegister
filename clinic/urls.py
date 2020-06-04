@@ -10,12 +10,16 @@ animals_patterns = [
     path('', animals.list, name='list'),
     path('<int:animal_id>/', animals.detail, name='detail'),
     path('new/', animals.add_new_animal, name='create'),
+    path('edit/<int:animal_id>/', animals.edit_animal, name='edit'),
+    path('delete/<int:animal_id>/', animals.delete_animal, name='delete'),
 ]
 
 procedures_patterns = [
     path('', procedures.list, name='list'),
     path('<int:procedure_id>/', procedures.detail, name='detail'),
     path('new/', procedures.add_new_procedure, name='create'),
+    path('edit/<int:procedure_id>/', procedures.edit_procedure, name='edit'),
+    path('delete/<int:procedure_id>/', procedures.delete_procedure, name='delete'),
 ]
 
 urlpatterns = [
