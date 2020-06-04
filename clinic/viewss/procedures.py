@@ -42,3 +42,23 @@ def add_new_procedure(request):
     else:
         form = ProcedureForm()
         return render(request, 'procedures/create.html', {'form': form})
+
+
+def edit_procedure(request, procedure_id):
+    procedure = Procedure.objects.get(id=procedure_id)
+    if request.method == 'POST':
+        form = ProcedureForm(data=request.POST, instance=procedure)
+        if form.is_valid():
+            form.save()
+            return redirect(reverse('clinic:procedures:list'))
+        else:
+            return render(request, 'procedures/edit.html', {'procedure': procedure, 'form': form})
+    else:
+        form = ProcedureForm()
+        return render(request, 'procedures/edit.html', {'procedure': procedure, 'form': form})
+
+
+def delete_procedure(request, procedure_id):
+    if request.method == 'POST':
+        Procedure.objects.get(id=procedure_id).delete()
+    return redirect(reverse('clinic:procedures:list'))
