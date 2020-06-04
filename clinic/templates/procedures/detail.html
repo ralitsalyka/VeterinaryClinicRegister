@@ -1,3 +1,23 @@
-{% extends "procedures/base.html" %} {% block content %}
-<h2>{{ procedure.name }}</h2>
+{% extends "procedures/base.html" %} 
+{% block content %}
+<table style="width:100%">
+    <tr>
+        <th style="text-align:left">Procedure name</th>
+        <th style="text-align:left">Procedure animal</th>
+        <th style="text-align:left">Procedure owner</th>
+        <th style="text-align:left">Procedure description</th>
+        <th style="text-align:left">Procedure start date</th>
+        <th style="text-align:left">Procedure end date</th>
+        <th style="text-align:left">Procedure information</th>
+    </tr>
+    <tr>
+        <th style="text-align:left">{{procedure.name}}</th>
+        <th style="text-align:left">{{procedure.animal_name}}</th>
+        <th style="text-align:left">{{procedure.owner}}</th>
+        <th style="text-align:left">{{procedure.description}}</th>
+        <th style="text-align:left">{{procedure.start_date}}</th>
+        <th style="text-align:left">{{procedure.end_date}}</th>
+        <th style="text-align:left">{{procedure.information}}</th>
+    </tr>
+</table>
 {% endblock %}

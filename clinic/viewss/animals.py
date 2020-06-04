@@ -12,7 +12,7 @@ def list(request):
 
 def detail(request, animal_id):
     animal = get_object_or_404(Animal, id=animal_id)
-    return render(request, 'animals/detail.html', {'animals': animal})
+    return render(request, 'animals/detail.html', {'animal': animal})
 
 
 class AnimalForm(forms.ModelForm):
@@ -23,8 +23,7 @@ class AnimalForm(forms.ModelForm):
 
 def add_new_animal(request):
     if request.method == "POST":
-        data = request.POST
-        form = AnimalForm(data=data)
+        form = AnimalForm(request.POST, request.FILES)
         if form.is_valid():
             name = form.cleaned_data.get('name')
             species = form.cleaned_data.get('species')
@@ -45,7 +44,7 @@ def add_new_animal(request):
 def edit_animal(request, animal_id):
     animal = Animal.objects.get(id=animal_id)
     if request.method == 'POST':
-        form = AnimalForm(data=request.POST, instance=animal)
+        form = AnimalForm(request.POST, request.FILES, instance=animal)
         if form.is_valid():
             form.save()
             return redirect(reverse('clinic:animals:list'))

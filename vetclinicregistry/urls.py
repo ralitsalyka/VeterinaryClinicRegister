@@ -22,7 +22,9 @@ from clinic.views import (
     login_view,
     account_view
 )
-#from clinic.viewss import animals
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -32,7 +34,4 @@ urlpatterns = [
     path('', home_screen_view, name="home"),
     path('login/', login_view, name="login"),
     path('account/', account_view, name="account"),
-]
-
-#MEDIA_URL = '/media/'
-#MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

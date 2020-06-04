@@ -12,7 +12,7 @@ def list(request):
 
 def detail(request, procedure_id):
     procedure = get_object_or_404(Procedure, id=procedure_id)
-    return render(request, 'procedures/detail.html', {'procedures': procedure})
+    return render(request, 'procedures/detail.html', {'procedure': procedure})
 
 
 class ProcedureForm(forms.ModelForm):
