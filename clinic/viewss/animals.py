@@ -6,7 +6,8 @@ from clinic.models import Animal
 
 
 def list(request):
-    return render(request, 'animals/list.html', {'animals': Animal.objects.all()})
+    current_user = request.user
+    return render(request, 'animals/list.html', {'animals': Animal.objects.filter(owner=current_user)})
 
 
 def detail(request, animal_id):
