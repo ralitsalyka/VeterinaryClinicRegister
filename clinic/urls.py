@@ -26,7 +26,4 @@ urlpatterns = [
     path('', index, name='index'),
     path('animals/', include((animals_patterns, 'animals'))),
     path('procedures/', include((procedures_patterns, 'procedures'))),
-]
-
-#if settings.DEBUG:
-    #urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

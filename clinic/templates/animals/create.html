@@ -1,6 +1,6 @@
 <h3>Add new animal</h3>
 
-<form method="POST">
+<form method="POST" enctype="multipart/form-data">
   {% csrf_token %}
   {{ form.as_p }}
   <input type="submit" name="Save" />
