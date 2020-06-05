@@ -28,8 +28,8 @@
 
 {% block content %}
 <div align="center" id="formContent">
-<h5>Here is the information for your account. If you want, you can modify it.</h5> 
-<h2>Your account</h2>
+<h5 style="color:black;">Here is the information for your account. If you want, you can modify it.</h5> 
+<h2 style="color:#630460;">Your account</h2>
 <form class="form-signin" method="post">
     {% csrf_token %}
     {% for field in account_form %}

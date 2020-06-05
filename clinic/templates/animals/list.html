@@ -9,20 +9,30 @@ div {
   padding: 90px;
 
 }
+ .button1 {
+  background-color: white;
+  color: black;
+  border: 2px solid #630460;
+}
+ .button2 {
+  background-color: purple;
+  color: white;
+  width: 250px;
+}
 </style>
 <div>
 <p><h1>Your pets</h1></p>
-<p><h3>Here you can see your pets, if you want to add a new one, click on add new</h3></p>
+<p><h4>Here you can see your pets, if you want to add a new one, click on add new.</h4></p>
 {% if animals %}
 <ul>
     {% for animal in animals %}
-    <p><a href="{% url 'clinic:animals:detail' animal.id %}">{{animal.name}}</a>
-    <form onsubmit="return confirm('Do you really want to delete your pet?');" method="POST" action="{% url 'clinic:animals:delete' animal.id %}">{% csrf_token %}<button>Delete</button></form><a href="{% url 'clinic:animals:edit' animal.id %}"><button>Edit</button></a></p>
+    <p><li><a href="{% url 'clinic:animals:detail' animal.id %}">{{animal.name}}</a></li>
+    <form onsubmit="return confirm('Do you really want to delete your pet?');" method="POST" action="{% url 'clinic:animals:delete' animal.id %}">{% csrf_token %}<button class = "button1">Delete</button></form><a href="{% url 'clinic:animals:edit' animal.id %}"><button class = "button1">Edit</button></a></p>
     {% endfor %}
 </ul>
 {% else %}
 <p><strong>No animals yet.</strong></p>
 {% endif %}
+<p><a href="{% url 'clinic:animals:create' %}"><button class = "button2" >Add new</button></a></p>
 </div>
-<p><a href="{% url 'clinic:animals:create' %}">Add new</a></p>
 {% endblock content %}

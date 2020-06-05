@@ -1,6 +1,13 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css_design/background/background.css' %}">
+<link rel="stylesheet" href="{% static 'css_design/account/account.css' %}">
+{% block content %}
+<div align="center" id="formContent">
+<form class="form-signin" method="post">
 Edit: {{ animal.name }}
-<form method="POST">
     {% csrf_token %}
     {{ form.as_p }}
     <button>Edit!</button>
 </form>
+</div>
+{% endblock content %}

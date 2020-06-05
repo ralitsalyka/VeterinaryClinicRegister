@@ -1,7 +1,13 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css_design/background/background.css' %}">
+<link rel="stylesheet" href="{% static 'css_design/account/account.css' %}">
+{% block content %}
+<div align="center" id="formContent">
+<form class="form-signin" method="post" enctype="multipart/form-data">
 <h3>Add new animal</h3>
-
-<form method="POST" enctype="multipart/form-data">
   {% csrf_token %}
   {{ form.as_p }}
   <input type="submit" name="Save" />
 </form>
+</div>
+{% endblock content %}
