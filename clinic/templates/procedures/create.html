@@ -1,6 +1,13 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css_design/background/background.css' %}">
+<link rel="stylesheet" href="{% static 'css_design/account/account.css' %}">
+{% block content %}
+<div align="center" id="formContent">
+<form class="form-signin" method="post">
 <h3>Add new procedure</h3>
-<form method="POST">
   {% csrf_token %}
   {{ form.as_p }}
   <input type="submit" name="Save" />
 </form>
+</div>
+{% endblock content %}

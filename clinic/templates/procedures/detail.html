@@ -1,6 +1,28 @@
-{% extends "procedures/base.html" %} 
+{% load static %}
+<link rel="stylesheet" href="{% static 'css_design/background/background.css' %}">
 {% block content %}
-<table style="width:100%">
+
+<style>
+div {
+  background-color:white;
+  text-align: center;
+  margin:80px auto;
+  width: 900px;
+  padding: 160px;
+
+}
+
+table {
+  border-collapse: collapse;
+}
+
+table, th, td {
+  border: 1px solid black;
+} 
+</style>
+<div >
+    <h2>All information for procedures you choose.</h2>
+<table >
     <tr>
         <th style="text-align:left">Procedure name</th>
         <th style="text-align:left">Procedure animal</th>
@@ -20,4 +42,5 @@
         <th style="text-align:left">{{procedure.information}}</th>
     </tr>
 </table>
+</div>
 {% endblock %}
