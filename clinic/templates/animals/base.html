@@ -1,8 +1,16 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css_design/background/background.css' %}">
+<link rel="stylesheet" href="{% static 'css_design/header/header.css' %}">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+ <nav class="my-2 my-md-0 mr-md-3">
 <a href="{% url 'home' %}">Home</a> | 
         <a href="{% url 'logout' %}">Logout</a> |
         <a href="{% url 'account' %}">Your account</a> |
         <a href="{% url 'clinic:animals:list' %}">Your pets</a> | 
         <a href="{% url 'clinic:procedures:list' %}">Your procedures</a>
-<p><h1>Your pets</h1></p>
-<p><h3>Here you can see your pets, if you want to add a new one, click on add new</h3></p>
-{% block content %} {% endblock %}
+  </nav>
+</div>
+</head>
+{% block content %} {% endblock content %} 

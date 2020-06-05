@@ -1,8 +1,9 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css_design/background/background.css' %}">
+<link rel="stylesheet" href="{% static 'css_design/header/header.css' %}">
 <p><a href="{% url 'home' %}">Home</a> | 
     <a href="{% url 'logout' %}">Logout</a> |
     <a href="{% url 'account' %}">Your account</a> |
     <a href="{% url 'clinic:animals:list' %}">Your pets</a> | 
     <a href="{% url 'clinic:procedures:list' %}">Your procedures</a> </p>
-<p><h3>Here you can see your procedures</h3></p>
-<p><h3>Click add new procedure, for creating a new one</h3></p>
 {% block content %} {% endblock %}
