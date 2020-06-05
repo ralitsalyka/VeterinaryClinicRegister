@@ -1,4 +1,5 @@
 {% load static %}
+<link rel="stylesheet" href="{% static 'css_design/account/account.css' %}">
 <link rel="stylesheet" href="{% static 'css_design/background/background.css' %}">
 <link rel="stylesheet" href="{% static 'css_design/header/header.css' %}">
 <head>
@@ -26,9 +27,10 @@
 </head>
 
 {% block content %}
+<div align="center" id="formContent">
 <h5>Here is the information for your account. If you want, you can modify it.</h5> 
 <h2>Your account</h2>
-<form method="post">
+<form class="form-signin" method="post">
     {% csrf_token %}
     {% for field in account_form %}
         <p>
@@ -52,4 +54,5 @@
     {% endif %}
     <button type="submit">Save changes</button>
 </form>
+</div>  
 {% endblock content %}

@@ -8,13 +8,17 @@
     <form class="form-signin" method="post">
     {% csrf_token %}
       <!-- Tabs Titles -->
-      <h1 class="h3 mb-3 font-weight-normal"> Login </h1>
+      <h1 class="h3 mb-3 font-weight-normal"> Register your account </h1>
       
       <input type="email" id="inputEmail" class="form-control" name="email" placeholder="Email address" required autofocus>
       
-      <input type="password" id="inputPassword" class="form-control" name="password" placeholder="Password" required>
+      <input type="username" id="inputUsername" class="form-control" name="username" placeholder="Username" required>
 
-      {% for field in login_form %}
+      <input type="password" id="inputPassword" class="form-control" name="password1" placeholder="Password" required>
+
+      <input type="password" id="inputPassword" class="form-control" name="password2" placeholder="Confirm password" required>
+
+      {% for field in registration_form %}
         <p>
           {% for error in field.errors %}
               <p style="color: red;">{{error}}</p>
@@ -22,36 +26,15 @@
         </p>
       {% endfor %}        
     
-      {% if login_form.non_field_errors %}
+      {% if registration_form.non_field_errors %}
           <div style="color: red;">
-              <p>{{login_form.non_field_errors}}</p>
+              <p>{{registration_form.non_field_errors}}</p>
           </div>
       {% endif %}
 
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>>
     </form>
 
   </div>
 </div>
-{% endblock content %}
-
-
-{% block content %}
-<h2>Register</h2>
-<form method="post">
-    {% csrf_token %}
-    {% for field in registration_form %}
-        <p>
-            {{field.label_tag}}
-            {{field}}
-            {% if field.help_text %}
-                <small style="color: grey;">{{field.help_text}}</small>
-            {% endif %}
-            {% for error in field.errors %}
-                <p style="color: red;">{{error}}</p>
-            {% endfor %}
-        </p>
-    {% endfor %}
-    <button type="submit">Register</button>
-</form>
 {% endblock content %}
