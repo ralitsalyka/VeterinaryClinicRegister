@@ -1,22 +1,23 @@
-{% extends "animals/base.html" %} {% block content %}
+{% extends "animals/base.html" %} 
+{% block content %}
 <style>
 div {
   background-color:white;
   text-align: center;
-  margin:20px auto;
-  width: 700px;
+  margin:0px auto;
+  width: 1300px;
   padding: 90px;
 
 }
 </style>
-<div >
+<div>
 <p><h1>Your pets</h1></p>
 <p><h3>Here you can see your pets, if you want to add a new one, click on add new</h3></p>
 {% if animals %}
 <ul>
     {% for animal in animals %}
     <p><a href="{% url 'clinic:animals:detail' animal.id %}">{{animal.name}}</a>
-    <form onsubmit="return confirm('Do you really want to delete your pet?');" method="POST" action="{% url 'clinic:animals:delete' animal.id %}">{% csrf_token %}</form><button>Delete</button></form><a href="{% url 'clinic:animals:edit' animal.id %}"><button>Edit</button></a></p>
+    <form onsubmit="return confirm('Do you really want to delete your pet?');" method="POST" action="{% url 'clinic:animals:delete' animal.id %}">{% csrf_token %}<button>Delete</button></form><a href="{% url 'clinic:animals:edit' animal.id %}"><button>Edit</button></a></p>
     {% endfor %}
 </ul>
 {% else %}
