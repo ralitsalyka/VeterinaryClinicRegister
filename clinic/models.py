@@ -47,7 +47,7 @@ class User(AbstractBaseUser):
     objects = MyAccountManager()
 
     def __str__(self):
-        return f'User {self.username}'
+        return f'{self.username}'
 
     def has_perm(self, perm, obj=None):
         return self.is_admin
@@ -64,7 +64,7 @@ class Animal(models.Model):
     photo = models.ImageField(upload_to="media/images/")
 
     def __str__(self):
-        return f'Animal "{self.name}"'
+        return f'{self.name}'
 
 
 class Procedure(models.Model):
