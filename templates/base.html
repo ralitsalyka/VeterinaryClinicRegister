@@ -11,9 +11,26 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <title>Vet Clinic</title>
 </head>
-<body>
+<style>
+.header {
+  padding: 60px;
+  text-align: center;
+  background: white;
+  color: #630460;
+  font-size: 30px;
+}
+ .button1 {
+  background-color: white;
+  color: black;
+  border: 2px solid #630460; /* Green */
+}
+</style>
+
+<div class="header">
+<body style="color:white;">
     <h1>Welcome to our veterinary clinic!</h1>
     <p>Choose one of the following:</p>
-    <p><a href="{% url 'register' %}">Register</a> | <a href="{% url 'login' %}">Login</a></p>
+    <p><a href="{% url 'register' %}"><button class="button1">Register</button></a> | <a href="{% url 'login' %}"><button class="button1" >Login</button></a></p>
 </body>
 </html>
+</div>

@@ -1,9 +1,13 @@
 {% extends "procedures/base.html" %} {% block content %}
+
+<p><h3>Here you can see your procedures</h3></p>
+<p><h3>Click add new procedure, for creating a new one</h3></p>
+
 {% if procedures %}
 <ul>
     {% for procedure in procedures %}
     <li><a href="{% url 'clinic:procedures:detail' procedure.id %}">{{procedure.name}}</a></li>
-    <form onsubmit="return confirm('Do you really want to delete these procedure?');" method="POST" action="{% url 'clinic:procedures:delete' procedure.id %}">{% csrf_token %}<button>Delete</button></form><form method="POST" action="{% url 'clinic:procedures:edit' procedure.id %}">{% csrf_token %}<button>Edit</button></form> </li>
+    <form onsubmit="return confirm('Do you really want to delete these procedure?');" method="POST" action="{% url 'clinic:procedures:delete' procedure.id %}">{% csrf_token %}</form><button>Delete</button></form><a href="{% url 'clinic:procedures:edit' procedure.id %}"><button>Edit</button></a> </li>
     {% endfor %}
 </ul>
 {% else %}

@@ -54,7 +54,7 @@ def edit_procedure(request, procedure_id):
         else:
             return render(request, 'procedures/edit.html', {'procedure': procedure, 'form': form})
     else:
-        form = ProcedureForm()
+        form = ProcedureForm(instance=procedure)
         return render(request, 'procedures/edit.html', {'procedure': procedure, 'form': form})
 
 
